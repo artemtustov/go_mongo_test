@@ -11,10 +11,10 @@ services:
     ports:
       - 27017:27017
 
-  crud_go_gin:
+  car_service:
     build: .
     command:
-      - "/usr/src/app/main"
+      - "/usr/src/app/app"
     ports:
       - 8080:8080
     depends_on:
