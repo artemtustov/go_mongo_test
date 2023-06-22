@@ -14,9 +14,8 @@ import (
 
 func NewServer() {
 	r := mux.NewRouter()
-	r.PathPrefix("/cars/")
-	r.HandleFunc("add", addCar)
-	r.HandleFunc("getAll", getCars)
+	r.HandleFunc("/cars/add", addCar)
+	r.HandleFunc("/cars/getAll", getCars)
 	srv := &http.Server{
 		Addr:         "127.0.0.1:8080",
 		Handler:      r,
