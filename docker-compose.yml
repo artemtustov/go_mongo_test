@@ -1,0 +1,23 @@
+version: "3"
+
+services:
+
+  mongo_db:
+    image: mongo
+    restart: always
+    #environment:
+    #  MONGO_INITDB_ROOT_USERNAME: root
+    #  MONGO_INITDB_ROOT_PASSWORD: example
+    ports:
+      - 27017:27017
+
+  crud_go_gin:
+    build: .
+    command:
+      - "/usr/src/app/main"
+    ports:
+      - 8080:8080
+    depends_on:
+      - mongo_db
+    network_mode: host
+
